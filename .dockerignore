@@ -1,6 +1,8 @@
 node_modules
 npm-debug.log
-.gitignore
+chart
+*.psd
 .gitignore
 LICENSE
 README.md
+config

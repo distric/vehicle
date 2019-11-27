@@ -2,16 +2,22 @@ var express = require('express');
 const util = require('util');
 var MongoClient = require('mongodb').MongoClient;
 var ObjectId = require('mongodb').ObjectId;
+var fs = require('fs');
+var path = require('path');
 
 var router = express.Router();
 
-// MongoDB Logic
-const DB_NAME = process.env.DB_NAME || 'vehicle';
-const DB_VEHICLE_COLLECTION_NAME = process.env.DB_VEHICLE_COLLECTION_NAME || 'vehicles';
+function loadConfigFile(relPath) {
+    return fs.readFileSync(path.join(__dirname, relPath), { encoding: 'utf8' });
+}
 
-const MONGO_USER = process.env.MONGO_USER || 'distric-msvc';
-const MONGO_PASSWORD = process.env.MONGO_PASSWORD || '9p68lDlOS0bidxBm';
-const MONGO_URL = process.env.MONGO_URL || 'distric-ie289.mongodb.net/test?retryWrites=true&w=majority';
+// MongoDB Logic
+const DB_NAME = loadConfigFile('../config/database');
+const DB_VEHICLE_COLLECTION_NAME = loadConfigFile('../config/collection');
+const MONGO_USER = loadConfigFile('../config/user');
+const MONGO_PASSWORD = Buffer.from(loadConfigFile('../config/password'), 'base64');
+const MONGO_URL = loadConfigFile('../config/host');
+
 const uri = util.format('mongodb+srv://%s:%s@%s', MONGO_USER, MONGO_PASSWORD, MONGO_URL);
 
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });

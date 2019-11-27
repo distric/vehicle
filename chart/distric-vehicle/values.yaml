@@ -1,0 +1,33 @@
+replicaCount: 1
+updateStrategy:
+  type: RollingUpdate
+
+image:
+  registry: docker.io
+  repository: nistei/vehicle-distric
+  tag: latest
+  pullPolicy: Always
+
+  privateRegistry: false
+  pullSecret: ""
+
+externalDatabase:
+  host: distric-ie289.mongodb.net/test?retryWrites=true&w=majority
+  user: distric-msvc
+  password: 9p68lDlOS0bidxBm
+  database: vehicle
+  collection: vehicles
+
+service:
+  type: ClusterIP
+  port: 80
+  targetPort: 8080
+  externalTrafficPolicy: Cluster
+  annotations: []
+
+ingress:
+  enabled: true
+  hosts:
+  - name: xip.io
+    path: /api/vehicle
+  annotations: []
