@@ -10,8 +10,6 @@ COPY package*.json ./
 RUN npm install && \
     npm cache clean --force
 
-RUN if [ "$NODE_ENV" = "production" ] ; then npm install --only=production ; else npm install ; fi
-
 # Bundle app source
 COPY src/* src/
 

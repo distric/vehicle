@@ -15,7 +15,7 @@ function loadConfigFile(relPath) {
 const DB_NAME = loadConfigFile('../config/database');
 const DB_VEHICLE_COLLECTION_NAME = loadConfigFile('../config/collection');
 const MONGO_USER = loadConfigFile('../config/user');
-const MONGO_PASSWORD = Buffer.from(loadConfigFile('../config/password'), 'base64');
+const MONGO_PASSWORD = loadConfigFile('../config/password');
 const MONGO_URL = loadConfigFile('../config/host');
 
 const uri = util.format('mongodb+srv://%s:%s@%s', MONGO_USER, MONGO_PASSWORD, MONGO_URL);

@@ -4,8 +4,8 @@ updateStrategy:
 
 image:
   registry: docker.io
-  repository: nistei/vehicle-distric
-  tag: latest
+  repository: nistei/distric-vehicle
+  tag: dev
   pullPolicy: Always
 
   privateRegistry: false
@@ -28,6 +28,6 @@ service:
 ingress:
   enabled: true
   hosts:
-  - name: xip.io
+  - name: 192.168.178.30.xip.io
     path: /api/vehicle
   annotations: []
