@@ -5,7 +5,7 @@ updateStrategy:
 image:
   registry: docker.io
   repository: nistei/distric-vehicle
-  tag: dev
+  tag: latest
   pullPolicy: Always
 
   privateRegistry: false
