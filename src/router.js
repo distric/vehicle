@@ -8,7 +8,9 @@ var path = require('path');
 var router = express.Router();
 
 function loadConfigFile(relPath) {
-    return fs.readFileSync(path.join(__dirname, relPath), { encoding: 'utf8' });
+    var str = fs.readFileSync(path.join(__dirname, relPath), { encoding: 'utf8' });
+    console.log(relPath, str);
+    return str;
 }
 
 // MongoDB Logic
