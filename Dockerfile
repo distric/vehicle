@@ -11,7 +11,9 @@ RUN npm install && \
     npm cache clean --force
 
 # Bundle app source
-COPY src/* src/
+COPY index.js index.js
+COPY ./routes/* ./routes/
+COPY ./config/*.js ./config/*.js
 
 EXPOSE 8080
 CMD [ "npm", "start" ]

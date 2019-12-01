@@ -59,6 +59,7 @@ typings/
 
 # next.js build output
 .next
-
-# config folder
-config/
+config/database
+config/host
+config/password
+config/user
