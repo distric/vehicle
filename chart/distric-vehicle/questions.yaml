@@ -1,0 +1,98 @@
+categories:
+- distric
+- vehicle
+questions:
+- variable: image.registry
+  default: "docker.io"
+  description: "Distric-Vehicle image name"
+  type: string
+  required: true
+  label: Distric-Vehicle Image Name
+  group: "Container Image"
+- variable: image.repository
+  default: "nistei/distric-vehicle"
+  description: "Distric-Vehicle image name"
+  type: string
+  required: true
+  label: Distric-Vehicle Image Name
+  group: "Container Image"
+- variable: image.tag
+  default: "latest"
+  description: "Distric-Vehicle image tag"
+  type: string
+  required: true
+  label: Image Tag
+  group: "Container Image"
+- variable: image.pullPolicy
+  default: "Always"
+  description: "Distric-Vehicle image pull policy"
+  type: string
+  required: true
+  label: Pull Policy
+  group: "Container Image"
+
+- variable: image.privateRegistry
+  default: false
+  description: "Are you pulling from a private Registry"
+  label: Private Registry
+  type: boolean
+  show_subquestion_if: true
+  group: "Registry"
+  subquestions:
+  - variable: image.pullSecret
+    default: ""
+    description: "Pull secret name"
+    type: string
+    label: Pull Secret Name
+
+- variable: replicaCount
+  default: 1
+  description: "Deployment replica count"
+  type: int
+  min: 1
+  required: true
+  label: Replica Count
+  group: "Deployment"
+
+- variable: externalDatabase.host
+  default: "distric-ie289.mongodb.net/test?retryWrites=true&w=majority"
+  description: "MongoDB host"
+  type: string
+  required: true
+  label: MongoDB Host
+  group: "MongoDB Settings"
+- variable: externalDatabase.user
+  default: "distric-msvc"
+  description: "MongoDB user"
+  type: string
+  required: true
+  label: MongoDB User
+  group: "MongoDB Settings"
+- variable: externalDatabase.password
+  default: "9p68lDlOS0bidxBm"
+  description: "MongoDB password"
+  type: password
+  label: MongoDB Password
+  group: "MongoDB Settings"
+- variable: externalDatabase.database
+  default: "vehicle"
+  description: "MongoDB database name"
+  type: string
+  required: true
+  label: MongoDB Database
+  group: "MongoDB Settings"
+
+- variable: ingress.enabled
+  default: true
+  description: "Expose app using Layer 7 Load Balancer - ingress"
+  type: boolean
+  label: Expose app using Layer 7 Load Balancer
+  show_subquestion_if: true
+  group: "Services and Load Balancing"
+  subquestions:
+  - variable: ingress.hosts[0].name
+    default: "xip.io"
+    description: "Hostname for the service"
+    type: hostname
+    required: true
+    label: Hostname

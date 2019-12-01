@@ -1,7 +1,3 @@
-replicaCount: 1
-updateStrategy:
-  type: RollingUpdate
-
 image:
   registry: docker.io
   repository: nistei/distric-vehicle
@@ -11,12 +7,15 @@ image:
   privateRegistry: false
   pullSecret: ""
 
+replicaCount: 1
+updateStrategy:
+  type: RollingUpdate
+
 externalDatabase:
   host: distric-ie289.mongodb.net/test?retryWrites=true&w=majority
   user: distric-msvc
   password: 9p68lDlOS0bidxBm
   database: vehicle
-  collection: vehicles
 
 service:
   type: ClusterIP
