@@ -13,7 +13,7 @@ RUN npm install && \
 # Bundle app source
 COPY index.js index.js
 COPY ./routes/* ./routes/
-COPY ./config/*.js ./config/*.js
+COPY ./config/*.js ./config/
 
 EXPOSE 8080
 CMD [ "npm", "start" ]

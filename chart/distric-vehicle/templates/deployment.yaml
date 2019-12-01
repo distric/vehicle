@@ -34,7 +34,7 @@ spec:
         volumeMounts:
         - name: mongodbconf
           readOnly: true
-          mountPath: "/usr/app/config"
+          mountPath: "/usr/app/config/mnt"
         ports:
         - name: http
           containerPort: 8080

@@ -12,10 +12,10 @@ module.exports = {
 		level: process.env.LOG_LEVEL || 'debug',
 	},
 	database: {
-		name: fs.readFileSync(path.join(__dirname, './database'), { encoding: 'utf8' }),
-		user: fs.readFileSync(path.join(__dirname, './user'), { encoding: 'utf8' }),
-		password: fs.readFileSync(path.join(__dirname, './password'), { encoding: 'utf8' }),
-		host: fs.readFileSync(path.join(__dirname, './host'), { encoding: 'utf8' }),
+		name: fs.readFileSync(path.join(__dirname, './mnt/database'), { encoding: 'utf8' }),
+		user: fs.readFileSync(path.join(__dirname, './mnt/user'), { encoding: 'utf8' }),
+		password: fs.readFileSync(path.join(__dirname, './mnt/password'), { encoding: 'utf8' }),
+		host: fs.readFileSync(path.join(__dirname, './mnt/host'), { encoding: 'utf8' }),
 		collections: {
 			vehicles: 'vehicles'
 		}

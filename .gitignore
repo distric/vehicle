@@ -59,7 +59,5 @@ typings/
 
 # next.js build output
 .next
-config/database
-config/host
-config/password
-config/user
+
+config/mnt/

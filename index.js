@@ -1,31 +1,3 @@
-const fs = require('fs');
-const path = require('path');
-var filesCollection = [];
-const directoriesToSkip = ['node_modules'];
-
-function readDirectorySynchronously(directory) {
-    var currentDirectorypath = path.join(__dirname + directory);
-
-    var currentDirectory = fs.readdirSync(currentDirectorypath, 'utf8');
-
-    currentDirectory.forEach(file => {
-        var fileShouldBeSkipped = directoriesToSkip.indexOf(file) > -1;
-        var pathOfCurrentItem = path.join(__dirname + directory + '/' + file);
-        if (!fileShouldBeSkipped && fs.statSync(pathOfCurrentItem).isFile()) {
-            filesCollection.push(pathOfCurrentItem);
-        }
-        else if (!fileShouldBeSkipped) {
-            var directorypath = path.join(directory + '\\' + file);
-            readDirectorySynchronously(directorypath);
-        }
-    });
-}
-
-readDirectorySynchronously('');
-console.log(filesCollection);
-
-
-
 const express = require('express');
 const winston = require('winston');
 const expressWinston = require('express-winston');
