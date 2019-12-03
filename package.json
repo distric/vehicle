@@ -6,20 +6,20 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node ./index.js",
-    "build-dev": "docker build -t nistei/distric-vehicle:dev .",
-    "push-dev": "docker push nistei/distric-vehicle:dev",
-    "minikube": "docker build -t nistei/distric-vehicle:dev . && docker push nistei/distric-vehicle:dev && helm install --generate-name ./chart/distric-vehicle --set image.tag=dev"
+    "build-dev": "docker build -t distric/vehicle:dev .",
+    "push-dev": "docker push distric/vehicle:dev",
+    "minikube": "docker build -t distric/vehicle:dev . && docker push distric/vehicle:dev && helm install --generate-name ./chart/distric-vehicle --set image.tag=dev"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nistei/distric-vehicle.git"
+    "url": "git+https://github.com/distric/vehicle.git"
   },
   "author": "Niklas Steiner",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/nistei/distric-vehicle/issues"
+    "url": "https://github.com/distric/vehicle/issues"
   },
-  "homepage": "https://github.com/nistei/distric-vehicle#readme",
+  "homepage": "https://github.com/distric/vehicle#readme",
   "dependencies": {
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
