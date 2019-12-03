@@ -10,7 +10,7 @@ questions:
   label: Distric-Vehicle Image Name
   group: "Container Image"
 - variable: image.repository
-  default: "nistei/distric-vehicle"
+  default: "distric/vehicle"
   description: "Distric-Vehicle image name"
   type: string
   required: true

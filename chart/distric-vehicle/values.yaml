@@ -1,6 +1,6 @@
 image:
   registry: docker.io
-  repository: nistei/distric-vehicle
+  repository: distric/vehicle
   tag: latest
   pullPolicy: Always
 
