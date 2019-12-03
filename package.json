@@ -6,9 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node ./index.js",
-    "build-dev": "docker build -t distric/vehicle:dev .",
-    "push-dev": "docker push distric/vehicle:dev",
-    "minikube": "docker build -t distric/vehicle:dev . && docker push distric/vehicle:dev && helm install --generate-name ./chart/distric-vehicle --set image.tag=dev"
+    "build-dev": "docker build -t distric/vehicle:dev ."
   },
   "repository": {
     "type": "git",
