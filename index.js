@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const MongoClient = require('mongodb').MongoClient;
 const config = require('./config');
 const util = require('util');
+const cors = require('cors');
 
 var app = express();
 
@@ -37,6 +38,8 @@ client.connect(err => {
 		],
 		format: LOG_FORMAT
 	}));
+
+	app.use(cors());
 
 
 	// ======= ROUTERS HERE =======
